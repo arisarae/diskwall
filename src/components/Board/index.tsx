@@ -1,52 +1,59 @@
-import albumDetailType from "@/types/Album"
-import Image from "next/image"
+import albumDetailType from "@/types/Album";
+import Image from "next/image";
 
 interface albumProps {
-  album: albumDetailType 
+  album: albumDetailType;
 }
 
 const Board: React.FC<albumProps> = ({ album }) => {
   return (
-    <div className="w-[600px] h-[385px] border-[13px] border-[#EDB67D] bg-[#DCA77D] bg-[url('/board.svg')] p-6 tilt-up grid grid-cols-3 grid-rows-5 gap-2">
-      <div className="p-4 bg-lilac row-span-5 ...">
-        <div className="w-full justify-between flex flex-row">
+    <div className="w-[600px] h-[385px] flex justify-center border-[13px] border-[#EDB67D] bg-[#DCA77D] bg-[url('/board.svg')] p-6 tilt-up gap-5 font-playpen text-center">
+      <div className="p-4 bg-lilac w-fit min-w-[150px] h-fit">
+        <div className="w-full justify-between flex flex-row p-2">
           <div className="pin" />
           <div className="pin" />
         </div>
-        {album.tracklist.map((track: String) => (
-          <p>{track}</p>
-        ))}
-      </div>
-      <div className="p-4 col-span-2 ...">
-        <p>{album.title}</p>
-      </div>
-      <div className="p-4 col-span-2"></div>
-      <div className="p-4 bg-periwinkle ...">
-        <div className="w-full justify-between flex flex-row">
-          <div className="pin" />
-          <div className="pin" />
+        <div className="flex flex-col justify-between gap-2 mb-2">
+          {album.tracklist.map((track: String) => (
+            <p>{track}</p>
+          ))}
         </div>
-        <p>{album.artist}</p>
       </div>
-      <div className="p-4 bg-periwinkle ...">
-        <div className="w-full justify-between flex flex-row">
-          <div className="pin" />
-          <div className="pin" />
+      <div className="w-fit h-[280px] flex flex-col justify-items-center justify-between items-center self-center">
+        <div className="justify-items-center w-fit">
+          <h1 className="font-syncopate text-3xl">{album.title}</h1>
         </div>
-        <p>{album.year}</p>
-      </div>
-      <div className="p-4 bg-sky col-span-2 ...">
-        <div className="w-full justify-between flex flex-row">
-          <div className="pin" />
-          <div className="pin" />
+        <div className="flex flex-row flex-wrap items-start gap-2 justify-center w-fit">
+          <div className="p-3 bg-periwinkle justify-items-center w-fit">
+            <div className="w-full justify-between flex flex-row p-1 pt-0">
+              <div className="pin" />
+              <div className="pin" />
+            </div>
+            <p>{album.artist}</p>
+          </div>
+          <div className="p-3 bg-periwinkle justify-items-center w-fit">
+            <div className="w-full justify-between flex flex-row p-1 pt-0">
+              <div className="pin" />
+              <div className="pin" />
+            </div>
+            <p>{album.year}</p>
+          </div>
+          <div className="p-3 bg-sky justify-items-center w-fit">
+            <div className="w-full justify-between flex flex-row p-1 pt-0">
+              <div className="pin" />
+              <div className="pin" />
+            </div>
+            <p>
+              Listen in <a href={album.link}>Spotify</a>
+            </p>
+          </div>
         </div>
-        <a href={album.link}>{album.link}</a>
-      </div>
-      <div className="p-4 col-span-2 ...">
-        <p>{album.rating}</p>
+        <div className="p-3 w-fit">
+          <p>{album.rating}</p>
+        </div>
       </div>
     </div>
   );
-}
+};
 
-export default Board
+export default Board;

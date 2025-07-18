@@ -1,6 +1,5 @@
 import Speaker from "@/components/Speaker";
 import Board from "@/components/Board";
-import albumDetailType from "@/types/Album";
 import albums from "@/data/album";
 
 interface albumProps {
