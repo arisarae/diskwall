@@ -1,5 +1,6 @@
 import albumDetailType from "@/types/Album";
 import Image from "next/image";
+import Rating from "../Rating";
 
 interface albumProps {
   album: albumDetailType;
@@ -49,7 +50,7 @@ const Board: React.FC<albumProps> = ({ album }) => {
           </div>
         </div>
         <div className="p-3 w-fit">
-          <p>{album.rating}</p>
+          <Rating album={album}/>
         </div>
       </div>
     </div>
