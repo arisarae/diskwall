@@ -3,6 +3,7 @@ export default interface albumDetailType {
   image: string;
   title: string;
   artist: string;
+  type: string;
   year: number;
   tracklist: string[];
   link: string;
