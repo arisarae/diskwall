@@ -8,7 +8,7 @@ interface albumProps {
 
 const Board: React.FC<albumProps> = ({ album }) => {
   return (
-    <div className="w-[600px] h-[385px] flex justify-center border-[13px] border-[#EDB67D] bg-[#DCA77D] bg-[url('/board.svg')] p-6 tilt-up gap-5 font-playpen text-center">
+    <div className="w-[600px] h-[385px] flex justify-center border-[13px] border-[#EDB67D] bg-[#DCA77D] bg-[url('/board.svg')] p-6 tilt-up gap-5 font-playpen text-center items-center">
       <div className="p-4 bg-lilac w-fit min-w-[150px] h-fit">
         <div className="w-full justify-between flex flex-row p-2">
           <div className="pin" />
@@ -20,7 +20,7 @@ const Board: React.FC<albumProps> = ({ album }) => {
           ))}
         </div>
       </div>
-      <div className="w-fit h-[280px] flex flex-col justify-items-center justify-between items-center self-center">
+      <div className="w-fit max-w-[280px] h-[280px] flex flex-col justify-items-center justify-between items-center self-center">
         <div className="justify-items-center w-fit">
           <h1 className="font-syncopate text-3xl">{album.title}</h1>
         </div>
@@ -30,7 +30,9 @@ const Board: React.FC<albumProps> = ({ album }) => {
               <div className="pin" />
               <div className="pin" />
             </div>
-            <p>{album.artist}</p>
+            <p>
+              {album.type} by {album.artist}
+            </p>
           </div>
           <div className="p-3 bg-periwinkle justify-items-center w-fit">
             <div className="w-full justify-between flex flex-row p-1 pt-0">
@@ -45,12 +47,15 @@ const Board: React.FC<albumProps> = ({ album }) => {
               <div className="pin" />
             </div>
             <p>
-              Listen in <a href={album.link}>Spotify</a>
+              Listen in{" "}
+              <a href={album.link} className="underline underline-offset-3">
+                Spotify
+              </a>
             </p>
           </div>
         </div>
-        <div className="p-3 w-fit">
-          <Rating album={album}/>
+        <div className="w-fit">
+          <Rating album={album} />
         </div>
       </div>
     </div>
